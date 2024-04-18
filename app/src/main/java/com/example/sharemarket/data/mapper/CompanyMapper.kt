@@ -5,11 +5,11 @@ import com.example.sharemarket.domain.model.CompanyListing
 
 fun CompanyListingEntity.toCompanyListing():CompanyListing
 {
-    return CompanyListing(name = name,symbol =symbol,exchange = exchange )
+    return CompanyListing(name = name,symbol = symbol,exchange = exchange)
 }
 
-fun CompanyListingEntity.toCompanyListingEntity():CompanyListingEntity
+fun CompanyListing.toCompanyListingEntity():CompanyListingEntity
 {
-    return CompanyListingEntity(name = name,symbol =symbol,exchange = exchange )
+    return CompanyListingEntity(name = name,symbol = symbol,exchange = exchange)
 }
 

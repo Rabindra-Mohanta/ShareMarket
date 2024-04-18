@@ -72,7 +72,7 @@ dependencies {
 
 
     //open csv
-    implementation("com.opencsv:opencsv:5.8.0")
+    implementation("com.opencsv:opencsv:5.5.2")
     //compose dependency android
     val lifecycle_version = "2.7.0"
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_version")  //for viewModel
