@@ -4,6 +4,8 @@ plugins {
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("kotlin-parcelize")
+    id("com.google.devtools.ksp")
+
 }
 
 android {
@@ -33,17 +35,17 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.12"
     }
     packaging {
         resources {
@@ -84,7 +86,7 @@ dependencies {
     //retrofit dependency in android
     implementation("com.squareup.retrofit2:retrofit:2.11.0")
     implementation("com.google.code.gson:gson:2.10.1")
-    implementation("com.squareup.retrofit2:converter-moshi:2.10.1")
+    implementation("com.squareup.retrofit2:converter-moshi:2.11.0")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
     //room dependency
@@ -96,12 +98,16 @@ dependencies {
     implementation("androidx.room:room-ktx:$room_version")
 
     //dagger hilt dependency
-    implementation("com.google.dagger:hilt-android:2.44")
-    kapt("com.google.dagger:hilt-android-compiler:2.44")
+    implementation("com.google.dagger:hilt-android:2.50")
+    kapt("com.google.dagger:hilt-android-compiler:2.50")
     kapt("androidx.hilt:hilt-compiler:1.0.0")
     implementation("androidx.hilt:hilt-navigation-compose:1.1.0-alpha01")
 
     //co routine dependency
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.1-Beta")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1-Beta")
+//for nav raamcosta
+    implementation("io.github.raamcosta.compose-destinations:core:1.1.2-beta")
+    ksp("io.github.raamcosta.compose-destinations:ksp:1.1.2-beta")
+
 }
