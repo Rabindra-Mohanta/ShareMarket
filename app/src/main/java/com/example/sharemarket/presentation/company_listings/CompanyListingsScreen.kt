@@ -13,6 +13,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.sharemarket.presentation.company_info.CompanyInfoScreen
+import com.example.sharemarket.presentation.destinations.CompanyInfoScreenDestination
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.ramcosta.composedestinations.annotation.Destination
@@ -35,8 +37,12 @@ fun CompanyListingScreen(navigator:DestinationsNavigator,viewModel:CompanyListin
                 items(state.companies.size)
                 {i->
                     val company = state.companies[i]
-                    CompanyItem(company = company, modifier = Modifier.fillMaxWidth().clickable { //TODO : navigate to detail screen
-                         }.padding(16.dp) )
+                    CompanyItem(company = company, modifier = Modifier
+                        .fillMaxWidth()
+                        .clickable {
+                            navigator.navigate(CompanyInfoScreenDestination(company.symbol))
+                        }
+                        .padding(16.dp) )
                     if(i<state.companies.size)
                     {
                         Divider(modifier = Modifier.padding(horizontal = 16.dp))
